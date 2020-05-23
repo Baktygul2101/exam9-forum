@@ -43,4 +43,7 @@ public class Author {
     @Column(length = 128)
     @Builder.Default
     private String role = "USER";
+
+    public Author(int i, String admin, String test123) {
+    }
 }

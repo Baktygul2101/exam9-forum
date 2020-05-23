@@ -4,6 +4,7 @@ package kg.exam9.forum.controller;
 import kg.exam9.forum.dto.TopicDTO;
 import kg.exam9.forum.exception.ResourceNotFoundException;
 import kg.exam9.forum.model.Topic;
+import kg.exam9.forum.repository.TopicRepository;
 import kg.exam9.forum.service.PropertiesService;
 import kg.exam9.forum.service.TopicService;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class TopicController {
 
     private final TopicService topicService;
     private final PropertiesService propertiesService;
+    private final TopicRepository repo;
 
     @GetMapping
     public String main(Model model, Pageable pageable, HttpServletRequest uriBuilder) {
@@ -29,6 +31,12 @@ public class TopicController {
         String uri = uriBuilder.getRequestURI();
         PropertiesService.constructPageable(topics, propertiesService.getDefaultPageSize(), model, uri);
         return "index";
+    }
+
+    @RequestMapping("/topics")
+    public String getTopics(Model model) {
+        model.addAttribute("topics", repo.findAll());
+        return "topics";
     }
     @GetMapping("/addTopic")
     public String addition() {

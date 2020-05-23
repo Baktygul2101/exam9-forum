@@ -9,6 +9,7 @@
 
 
 <form action="/addTopic" method="post">
+
     <label>Name</label>
     <input type="text" name="name" id="name" required="required" placeholder="topic"><br>
 
@@ -16,7 +17,7 @@
     <input type="text" name="description" required="required" id="description" placeholder=" description"><br>
 
     <label>Date</label>
-    <input type="number" name="price" required="required"  id="date" placeholder="post date"><br>
+    <input type="datetime-local" name="date" required="required"  id="date" placeholder="post date"><br>
 
 
     <input type="submit" value="add topic">
