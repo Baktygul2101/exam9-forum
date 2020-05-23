@@ -111,7 +111,19 @@ public class AuthorController {
         return "login";
     }
 
+ /*   @PostMapping("/login")
+    public String loginP(@Valid AuthorRegisterForm authorRequestDto,
+                               BindingResult validationResult,
+                               RedirectAttributes attributes) {
+        attributes.addFlashAttribute("dto", authorRequestDto);
 
+        if (validationResult.hasFieldErrors()) {
+            attributes.addFlashAttribute("errors", validationResult.getFieldErrors());
+            return "redirect:/login";
+        }
+
+        return "redirect:/addTopic";
+    }*/
 
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
