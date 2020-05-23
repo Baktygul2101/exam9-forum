@@ -41,17 +41,15 @@
     <body>
 
 <div class="navbar">
-    <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
-    <a href="/topics"><i class="fa fa-fw fa-search"></i> Search</a>
-    <a href="/addTopic"> Add topic </a>
-    <a href="/register"><i class="fa fa-fw fa-envelope"> </i>Register</a>
-    <a href="/profile"><i class="fa fa-fw fa-user"></i>Profile</a>
-    <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
+    <a href="/addTopic">Добавить</a>
+    <a href="/register"> Регистрация </a>
+    <a href="/login"> Войти </a>
+    <a href="/profile"> Профиль </a>
     <form class="flex box-128" action="/logout" method="post">
         <#if _csrf??>
             <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
         </#if>
-        <button class="flex box-128 logout-button">Выйти </button>
+        <button >Выйти </button>
     </form>
 </div>
 <div class="main">
@@ -60,7 +58,6 @@
         <p>${errorText!'-- no message --'}</p>
     </div>
     </#if>
-
 
 
 </div>
